@@ -16,16 +16,16 @@ $(SERVER): main.o func.o auth.o message.o
 	$(CC) -o $(SERVER) main.o func.o auth.o message.o -lcrypt -lpthread
 
 main.o: $(MAIN) mainFunctions.h globalVar.h
-	$(CC) -o main.o $(MAIN) -c -lpthread -lcrypt
+	$(CC) -o main.o $(MAIN) -c 
 
 func.o: $(FUNCTIONS) mainFunctions.h globalVar.h authFunctions.h messageFunctions.h
-	$(CC) -o func.o  $(FUNCTIONS) -c -lpthread -lcrypt
+	$(CC) -o func.o  $(FUNCTIONS) -c 
 
 auth.o: $(AUTH) authFunctions.h
 	$(CC) -o auth.o $(AUTH) -c
 
 message.o: $(MSG) messageFunctions.h
-	$(CC) -o message.o $(MSG) -c -lpthread
+	$(CC) -o message.o $(MSG) -c 
 
 build: 
 	@mkdir $(DIRMSG)
