@@ -21,7 +21,7 @@ pthread_mutex_t *user_register_mux;
 
 auth_entry *authTable[MAX_KEY];
 user_entry *userTable[MAX_KEY];
-char *tempUserNameTable[MAX_KEY];
+char *tempUserNameTable[MAX_KEY_TEMP];
 
 #define DOMINIO AF_INET
 #define PORT 8080
@@ -38,6 +38,11 @@ int main(void) {
 	pthread_attr_t attr;
 
     sigset_t set;
+
+    if(!(MAX_KEY_TEMP>(MAX_USERS_ONLINE*2))){ //cntrollo che la dimensione della tabella temporanea sia abbastanza grande per contenere tutti i client connessi
+        fprintf(stderr, "MAX_KEY_TEMP non abbastanza grande.\n");
+        exit(EXIT_FAILURE);
+    }
 
     if ( (list_s = socket(DOMINIO, SOCK_STREAM, 0)) < 0 ) {
 	fprintf(stderr, "Errore nella creazione della socket.\n");

@@ -133,7 +133,7 @@ char* padstring(char* input){
 }
 
 //Funzione hash per la tabella hash che ha come key l'username
-int hash(char* key, int ind) {
+int hash(char* key, int ind, int num_keys){
     int k = 0;
     int value = 0;
     int len = strlen(key);
@@ -142,7 +142,7 @@ int hash(char* key, int ind) {
         k += key[i];
     }
 
-    value = ((k % max_key) + ind*((k % (max_key-2)) + 1)) % max_key;
+    value = ((k % num_keys) + ind*((k % (num_keys-2)) + 1)) % num_keys;
 
     return value;
 }

@@ -7,8 +7,6 @@
 
 #define TIMEOUT 300 //secondi
 
-#define MAX_USERS_ONLINE 10
-
 #define MAX_PATHNAME_LEN (13+MAX_USERNAME_LENGHT) //13 = "FileMessaggi/"
 #define MAX_PATHNAME_LEN_IND (13+MAX_USERNAME_LENGHT+4) //4 = "_ind"
 

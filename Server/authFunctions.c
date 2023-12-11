@@ -23,11 +23,11 @@ void newEntry_auth(char* user,char* salt,char* pass, auth_entry **hashTable) {
     utente->userpass = pass;
     utente->username = user;
 
-    int hashIndex = hash(user, i);
+    int hashIndex = hash(user, i, MAX_KEY);
 
     while(hashTable[hashIndex] != NULL) {
         i++;
-        hashIndex = hash(user, i);
+        hashIndex = hash(user, i, MAX_KEY);
     }
 
     hashTable[hashIndex] = utente;
@@ -37,14 +37,14 @@ void newEntry_auth(char* user,char* salt,char* pass, auth_entry **hashTable) {
 auth_entry *verificaEntry_auth(char *user, auth_entry **hashTable) {
 
     int i = 0;
-    int hashIndex = hash(user, i);
+    int hashIndex = hash(user, i, MAX_KEY);
 
     while (hashTable[hashIndex] != NULL) {
         if (strcmp(hashTable[hashIndex]->username, user) == 0) {
             return hashTable[hashIndex];
         }
         i++;
-        hashIndex = hash(user, i);
+        hashIndex = hash(user, i, MAX_KEY);
     }
     return NULL;
 }
@@ -61,11 +61,11 @@ void newTempUsername(char * user, char **hashTable){
         exit(EXIT_FAILURE);
     }
 
-    int hashIndex = hash(user, i);
+    int hashIndex = hash(user, i, MAX_KEY_TEMP);
 
     while(hashTable[hashIndex] != NULL) {
         i++;
-        hashIndex = hash(user, i);
+        hashIndex = hash(user, i, MAX_KEY_TEMP);
     }
 
     hashTable[hashIndex] = utente;
@@ -76,14 +76,14 @@ void newTempUsername(char * user, char **hashTable){
 bool verificaTempUsername(char *user, char **hashTable){
 
     int i = 0;
-    int hashIndex = hash(user, i);
+    int hashIndex = hash(user, i, MAX_KEY_TEMP);
 
     while (hashTable[hashIndex] != NULL) {
         if (strcmp(hashTable[hashIndex], user) == 0) {
             return true;
         }
         i++;
-        hashIndex = hash(user, i);
+        hashIndex = hash(user, i, MAX_KEY_TEMP);
     }
     return false;
 
@@ -93,7 +93,7 @@ bool verificaTempUsername(char *user, char **hashTable){
 void freeTempUsername(char *user, char **hashTable){
 
     int i = 0;
-    int hashIndex = hash(user, i);
+    int hashIndex = hash(user, i, MAX_KEY_TEMP);
 
     while (hashTable[hashIndex] != NULL) {
         if (strcmp(hashTable[hashIndex], user) == 0) {
@@ -101,7 +101,7 @@ void freeTempUsername(char *user, char **hashTable){
             return;
         }
         i++;
-        hashIndex = hash(user, i);
+        hashIndex = hash(user, i, MAX_KEY_TEMP);
     }
 }
 

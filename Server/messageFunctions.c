@@ -32,11 +32,11 @@ void newEntry_user(char* user, user_entry **hashTable) {
     }
     utente->username = user;
 
-    int hashIndex = hash(user, i);
+    int hashIndex = hash(user, i, MAX_KEY);
 
     while(hashTable[hashIndex] != NULL) {
         i++;
-        hashIndex = hash(user, i);
+        hashIndex = hash(user, i, MAX_KEY);
     }
 
     hashTable[hashIndex] = utente;
@@ -46,14 +46,14 @@ void newEntry_user(char* user, user_entry **hashTable) {
 user_entry *verificaEntry_user(char *user, user_entry **hashTable) {
 
     int i = 0;
-    int hashIndex = hash(user,i);
+    int hashIndex = hash(user,i, MAX_KEY);
 
     while (hashTable[hashIndex] != NULL) {
         if (strcmp(hashTable[hashIndex]->username, user) == 0) {
             return hashTable[hashIndex];
         }
         i++;
-        hashIndex = hash(user, i);
+        hashIndex = hash(user, i, MAX_KEY);
     }
     return NULL;
 }

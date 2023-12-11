@@ -3,6 +3,8 @@
 
 //Numero massimo di chiavi per le tabelle hash
 #define MAX_KEY 1531 //Numeri primi, distanti da potenze di 2 (e di 10) come  13, 23, 47, 97, 193, 383, 769, 1531, 6143, 12289
+#define MAX_USERS_ONLINE 10
+#define MAX_KEY_TEMP 23 //Numero massimo di chiavi per la tabella hash dei nomi utente temporanei scelto come MAX_KEY e che sia maggiore di MAX_USERS_ONLINE*2
 
 #define MAX_OBJECT_LENGHT 50
 #define MAX_TEXT_LENGHT 1000

@@ -5,7 +5,7 @@
 #include <stdlib.h>
 #include <stdbool.h>
 
-extern int hash(char *key, int i);
+extern int hash(char *key, int i, int num_keys);
 
 user_entry *verificaEntry_user(char *user, user_entry **hashTable);
 void newEntry_user(char* user, user_entry **hashTable);

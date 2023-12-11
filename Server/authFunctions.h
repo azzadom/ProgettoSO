@@ -3,7 +3,7 @@
 
 #include <stdbool.h>
 
-extern int hash(char *key, int i);
+extern int hash(char *key, int i, int num_keys);
 
 void newEntry_auth(char* user,char* salt,char* pass, auth_entry **hashTable);
 auth_entry *verificaEntry_auth(char *user, auth_entry **hashTable);
