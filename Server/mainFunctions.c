@@ -839,7 +839,7 @@ redo_read_username:
     username[len] = '\0';
 
     if (!verifica_username(username, strlen(username))) {
-        if(write_on_sock(sock, CODE_ERRORUSRNM, lenght_code)){
+        if(!write_on_sock(sock, CODE_ERRORUSRNM, lenght_code)){
             free(username);
             exit_client(sock);
         }
