@@ -14,7 +14,7 @@ A message contains the fields: Recipient, Subject, and Text. Additionally, the s
 
 The operating system for which the service was written is LINUX.
 
-For all implementation details and execution instructions, refer to the "relazione.pdf" file.
+For all implementation details, refer to the "relazione.pdf" file written in italian.
 
 ## Usage Instructions
 
